@@ -1,0 +1,35 @@
+    
+    <div class="container">
+
+        <h1>Student Form</h1>
+        <form (ngSubmit)="onSubmit()" #studentForm="ngForm">
+        <div class="form-group">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" [(ngModel)]="model.id" name="id" >
+          </div>
+
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" required [(ngModel)]="model.name" name="name"  #name="ngModel">
+          </div>
+          <div [hidden]= " name.valid || name.pristine"
+             class="alert alert-danger">
+              Name is required
+          </div>
+          <div class="form-group">
+            <label for="papa">PAPA</label>
+            <input type="text" class="form-control" id="papa" required [(ngModel)]="model.papa" name="papa"   #papa="ngModel" >
+          </div>
+          <div [hidden]= " papa.valid || papa.pristine"
+             class="alert alert-warning">
+              PAPA is required
+          </div>
+          <button type="submit" class="btn btn-success" [disabled]="!studentForm.form.valid">Submit</button>
+
+          <button type="button" class="btn btn-default" (click)="newStudent(); studentForm.reset()">New Hero</button>
+      
+        </form>
+        <br>
+
+
+    </div>

@@ -1,5 +1,7 @@
 export class Student {
-	id: number;
-	name: string;
-	papa: number;
+	constructor(
+		public id: number,
+		public name: string,
+		public papa: number,
+	){}
 }
